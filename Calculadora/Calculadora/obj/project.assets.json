@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\ferna\\.nuget\\packages\\": {}
+    "C:\\Users\\anapa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ferna\\OneDrive\\Documentos\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
+      "projectUniqueName": "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
       "projectName": "Calculadora",
-      "projectPath": "C:\\Users\\ferna\\OneDrive\\Documentos\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
-      "packagesPath": "C:\\Users\\ferna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ferna\\OneDrive\\Documentos\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\obj\\",
+      "projectPath": "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
+      "packagesPath": "C:\\Users\\anapa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ferna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\anapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
