@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="MeuRPGZinUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MeuRPGZinUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Canvas>
+        <Button x:Name="BtnCriarDoar" 
+                Content="Criar Persongem" 
+                Height="105" Width="261" 
+                Canvas.Left="219" 
+                Canvas.Top="178" />
+        <Button x:Name="BtnRetirar" 
+            Content="Retirar Vida" 
+            Height="105" Width="261" 
+            Canvas.Left="219" 
+            Canvas.Top="323" Click="BtnRetirar_Click" />
+        <TextBlock x:Name="TblLevel" Foreground="Blue" FontWeight="ExtraBold" FontSize="25" Canvas.Left="219" Canvas.Top="59" Text="LEVEL" TextWrapping="Wrap"/>
+        <TextBlock x:Name="TblLife" Foreground="Green" FontWeight="ExtraBold" FontSize="25" Canvas.Left="219" Canvas.Top="93" Text="LIFE" TextWrapping="Wrap"/>
+        <Button x:Name="BtnVai" 
+            Content="Vai para Pagina 2" 
+            Height="105" Width="261" 
+            Canvas.Left="219" 
+            Canvas.Top="675" Click="BtnVai_Click" />
+    </Canvas>
+</Page>
