@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\anapa\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\anapa\\.nuget\\packages"
+      "C:\\Users\\ferna\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ferna\\.nuget\\packages"
     ]
   }
 }
