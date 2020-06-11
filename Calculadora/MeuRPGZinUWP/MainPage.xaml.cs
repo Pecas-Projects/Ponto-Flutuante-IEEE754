@@ -14,84 +14,33 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using MeuRPGZinCore;
+using CalculadoraCore;
 
 // O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x416
 
-namespace MeuRPGZinUWP
+namespace CalculadoraUWP
 {
     /// <summary>
     /// Uma página vazia que pode ser usada isoladamente ou navegada dentro de um Quadro.
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        Personagem p = null;
-        
+        public string valor;
+
         public MainPage()
         {
-            this.InitializeComponent();
-            BtnCriarDoar.Click += BtnCriarDoar_Click;            
+            this.InitializeComponent();  
         }
 
-        private void BtnCriarDoar_Click(object sender, RoutedEventArgs e)
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            if (p == null)
-            {
-                p = new Personagem { Nivel = 1, Vida = 10 };
-                var btn = sender as Button;
-                btn.Content = "Doar Vida";
-                p.PersonagemUP += TratarPersonagemUPLevel;
-                TblLevel.Text = "Nível:" + p.Nivel;
-                TblLife.Text = "Vida:" + p.Vida;
-            }
-            else
-            {
-                p.GanharVida();
-                TblLife.Text = "Vida:" + p.Vida;
-            }
+
         }
 
-        private void TratarPersonagemUPLevel(object sender, PersonagemEventArgs e)
+        private void Calcular_btn(object sender, RoutedEventArgs e)
         {
-            
-            var persona = sender as MeuRPGZinCore.Personagem;
-            TblLevel.Text = "Nível Anterior: " + e.NivelAnterior + " Novo Nível: " + persona.Nivel; 
+            valor = valorDigitado.Text;
+            Calcular.Content = valor;
         }
-
-        private void BtnRetirar_Click(object sender, RoutedEventArgs e)
-        {
-            p?.TirarVida();
-            TblLife.Text = "Vida:" + p?.Vida;
-        }
-
-        private void BtnVai_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(Pagina2), p);
-        }
-
-        //private void MeuBotao_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var btn = sender as Button;
-        //    if (btn != null)
-        //    {
-        //        double topBotao = Canvas.GetTop(btn);
-
-        //        if (btn.Content.ToString() == "TÓXICO")
-        //        {
-        //            Debug.WriteLine("EU SOU TÓXICO!");
-        //        }
-        //    }
-        //}
-
-        //private void MeuBotao_PointerEntered(object sender, PointerRoutedEventArgs e)
-        //{
-        //    MeuBotao.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
-
-        //}
-
-        //private void MeuBotao_PointerExited(object sender, PointerRoutedEventArgs e)
-        //{
-        //    // MeuBotao.Foreground = new SolidColorBrush(Windows.UI.Colors.Black);
-        //}
     }
 }
