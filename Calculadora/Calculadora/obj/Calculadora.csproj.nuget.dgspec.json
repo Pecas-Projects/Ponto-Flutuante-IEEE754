@@ -1,21 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj": {}
+    "C:\\Pecas\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj": {}
   },
   "projects": {
-    "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj": {
+    "C:\\Pecas\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
+        "projectUniqueName": "C:\\Pecas\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
         "projectName": "Calculadora",
-        "projectPath": "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
-        "packagesPath": "C:\\Users\\anapa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\anapa\\OneDrive\\Documents\\GitHub\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\obj\\",
+        "projectPath": "C:\\Pecas\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\Calculadora.csproj",
+        "packagesPath": "C:\\Users\\beatr\\.nuget\\packages\\",
+        "outputPath": "C:\\Pecas\\Ponto-Flutuante-IEEE754\\Calculadora\\Calculadora\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\anapa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\beatr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -47,12 +51,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -24,3 +24,16 @@ C:\Users\ferna\OneDrive\Documentos\GitHub\Ponto-Flutuante-IEEE754\Calculadora\Ca
 C:\Users\ferna\OneDrive\Documentos\GitHub\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.dll
 C:\Users\ferna\OneDrive\Documentos\GitHub\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.pdb
 C:\Users\ferna\OneDrive\Documentos\GitHub\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.genruntimeconfig.cache
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.exe
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.deps.json
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.runtimeconfig.json
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.runtimeconfig.dev.json
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.dll
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\bin\Debug\netcoreapp3.1\Calculadora.pdb
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.csprojAssemblyReference.cache
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.AssemblyInfoInputs.cache
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.AssemblyInfo.cs
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.csproj.CoreCompileInputs.cache
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.dll
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.pdb
+C:\Pecas\Ponto-Flutuante-IEEE754\Calculadora\Calculadora\obj\Debug\netcoreapp3.1\Calculadora.genruntimeconfig.cache
