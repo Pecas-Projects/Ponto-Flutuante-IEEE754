@@ -26,10 +26,29 @@ namespace CalculadoraUWP
     public sealed partial class MainPage : Page
     {
         public string valor;
+        public CalculadoraClasse Calculadora = new CalculadoraClasse();
 
         public MainPage()
         {
             this.InitializeComponent();  
+        }
+
+        public void AtualizaCalculos()
+        {
+            sinalCalculo_32.Text = Calculadora.Sinal;
+            if(Calculadora.Mantissa32.Count() < 23)
+            {
+                for(int a = Calculadora.Mantissa32.Count(); a<= 23; a++)
+                {
+                    Calculadora.Mantissa32 += "0";
+                }
+            }
+            expoenteCalculo_32.Text = Calculadora.Expoente32;
+            mantissaCalculo_32.Text = Calculadora.Mantissa32;
+
+            sinalCalculo_64.Text = Calculadora.Sinal;
+            expoenteCalculo_64.Text = Calculadora.Expoente64;
+            mantissaCalculo_64.Text = Calculadora.Mantissa64;
         }
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
@@ -40,7 +59,17 @@ namespace CalculadoraUWP
         private void Calcular_btn(object sender, RoutedEventArgs e)
         {
             valor = valorDigitado.Text;
-            Calcular.Content = valor;
+            if(valor.IndexOf('.') != -1)
+            {
+                valor = valor.Replace('.', ',');
+            }
+
+            double valorDouble = Double.Parse(valor);
+            Calculadora.Calculo_32bits(valorDouble);
+            Calculadora.Calculo_64bits(valorDouble);
+            AtualizaCalculos();
+            Calculadora.Reconstruir();
+
         }
     }
 }
