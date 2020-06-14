@@ -16,6 +16,7 @@ namespace CalculadoraCore
 
         public string Expoente8{ get; set; } = null;
         public string Mantissa8 { get; set; } = null;
+        public bool arredondado_8bits { get; set; } = false;
 
         public string Expoente32 { get; set; } = null;
         public string Mantissa32 { get; set; } = null;
@@ -72,60 +73,63 @@ namespace CalculadoraCore
 
             return resultado;
         }
-         
 
-        public void Calculo_8bits(double valor){
+
+        public string Calculo_8bits(double valor)
+        {
             string expoente = null, resultado = null, mantissa = null, aux = null, fracao;
-            double valor = DefineSinal(valor);
+            valor = DefineSinal(valor);
             double fracionaria;
             bool arredondado = false;
             int exp = 0;
 
             //pega a parte inteira e converte para binário obtendo uma parte da mantissa
-            
+
             aux = Math.Floor(valor).ToString();
 
             fracionaria = valor - Math.Floor(valor);
 
-            if(aux != "0")
+            if (aux != "0"  && valor <= 225)
             {
                 mantissa = Convert.ToString(Convert.ToByte(aux), 2);
             }
-            
-            
-            if(mantissa != null) //se o valor for > 1, o expoente é definido pelo tamanho em binário da parte inteira do valor
+
+
+            if (mantissa != null) //se o valor for > 1, o expoente é definido pelo tamanho em binário da parte inteira do valor
             {
-                expoente = execesso(mantissa.Length);
-                if (expoente == "Overflow" || expoente == "Underflow"){
-                
-                this.Expoente8 = expoente;
+
+                if (expoente == "Overflow" || expoente == "Underflow")
+                {
+                    this.Expoente8 = expoente;
+                    return expoente;
                 }
-                return expoente; 
+
+                expoente = execesso(mantissa.Length);
+
             }
 
             //descorir quantos zeros tem depois da virgula
             else if (mantissa == null)
             {
                 fracao = fracionaria.ToString();
-                for (int i = 2; i < fracao.Length ; ++i) //começa na primeira casa decimal depois da virgula
+                for (int i = 2; i < fracao.Length; ++i) //começa na primeira casa decimal depois da virgula
                 {
                     if (fracao[i] == 0) --exp;
                     else break;
                 }
 
                 expoente = execesso(exp);
-                if (expoente == "Overflow" || expoente == "Underflow"){
-
-                this.Expoente8 = expoente;
+                if (expoente == "Overflow" || expoente == "Underflow") {
+                    this.Expoente8 = expoente;
+                    return expoente;
                 }
-                return expoente;
             }
 
 
             //pega a parte da mantissa que corresponde ao fracionário
             while (true)
             {
-                if (fracionaria == 0)
+                if (fracionaria == 1)
                 {
                     break;
                 }
@@ -142,13 +146,13 @@ namespace CalculadoraCore
                 }
                 fracionaria *= 2;
                 mantissa += Math.Floor(fracionaria).ToString();
-               
-               
+
+
             }
 
-            if(mantissa.Length < 4)
+            if (mantissa.Length < 4)
             {
-                while(mantissa.Length < 4) //se não tiver 4 digitos na mantissa adiciona zeros no final
+                while (mantissa.Length < 4) //se não tiver 4 digitos na mantissa adiciona zeros no final
                 {
                     mantissa += "0";
                 }
@@ -156,7 +160,11 @@ namespace CalculadoraCore
 
             this.Expoente8 = expoente;
             this.Mantissa8 = mantissa;
+            this.arredondado_8bits = arredondado;
+            return resultado;
         }
+
+
 
         public void Calculo_32bits(double valor)
         {

@@ -35,21 +35,24 @@ namespace CalculadoraUWP
 
         public void AtualizaCalculos()
         {
-            sinalCalculo_32.Text = Calculadora.Sinal;
-            if(Calculadora.Mantissa32.Count() < 23)
+            
+            if(Calculadora.Expoente8 != null && Calculadora.Mantissa8 != null)
             {
-                for(int a = Calculadora.Mantissa32.Count(); a<= 23; a++)
+                if (Calculadora.Expoente8 != "Overflow" && Calculadora.Expoente8 != "Underflow")
                 {
-                    Calculadora.Mantissa32 += "0";
+                    sinalCalculo_8.Text = Calculadora.Sinal;
+                    mantissaCalculo_8.Text = Calculadora.Mantissa8;
+
                 }
+                expoenteCalculo_8.Text = Calculadora.Expoente8;             
             }
+            
 
-            expoenteCalculo_8.Text = Calculadora.Expoente8;
-            mantissaCalculo_8.Text = Calculadora.Mantissa8;
-
+            sinalCalculo_32.Text = Calculadora.Sinal;
             expoenteCalculo_32.Text = Calculadora.Expoente32;
             mantissaCalculo_32.Text = Calculadora.Mantissa32;
 
+            sinalCalculo_64.Text = Calculadora.Sinal;
             sinalCalculo_64.Text = Calculadora.Sinal;
             expoenteCalculo_64.Text = Calculadora.Expoente64;
             mantissaCalculo_64.Text = Calculadora.Mantissa64;
@@ -69,11 +72,42 @@ namespace CalculadoraUWP
             }
 
             double valorDouble = Double.Parse(valor);
-            Calculadora.Calculo_8bits(valorDouble);
-            Calculadora.Calculo_32bits(valorDouble);
-            Calculadora.Calculo_64bits(valorDouble);
-            AtualizaCalculos();
-            Calculadora.Reconstruir();
+
+            if(valorDouble != 0)
+            {
+                if ( valorDouble <= 225)
+                {
+                    Calculadora.Calculo_8bits(valorDouble);
+                }
+                else
+                {
+                    Calculadora.Mantissa8 = "Valor muito grande";
+                }
+                
+                Calculadora.Calculo_32bits(valorDouble);
+                Calculadora.Calculo_64bits(valorDouble);
+
+                if (Calculadora.arredondado_8bits == true)
+                {
+                    Calculadora.Mantissa8 += " (arredondado)";
+                }
+
+                if (Calculadora.Mantissa32.Count() < 23)
+                {
+                    for (int a = Calculadora.Mantissa32.Count(); a <= 23; a++)
+                    {
+                        Calculadora.Mantissa32 += "0";
+                    }
+                }
+
+                AtualizaCalculos();
+                Calculadora.Reconstruir();
+            }
+
+        }
+
+        private void mantissaCalculo_64_SelectionChanged(object sender, RoutedEventArgs e)
+        {
 
         }
     }
