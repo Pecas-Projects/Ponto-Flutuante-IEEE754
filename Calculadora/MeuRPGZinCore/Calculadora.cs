@@ -34,10 +34,27 @@ namespace CalculadoraCore
 
         public void CalculaHexa()
         {
-            string valor1 = this.Sinal + this.Expoente32 + this.Mantissa32;
-            long valor2 = Convert.ToInt64(valor1);
-            string valor3 = Convert.ToString(valor2, 10);
-            numeroHexa =  Convert.ToString(Convert.ToInt64(valor2), 16);
+            numeroHexa = null;
+            string substring, saida;
+            int binario, dec, cont = 0;
+            string valor1 = this.Sinal + this.Expoente32 + this.Mantissa32; //formação total do valor em binário com a adição do 0 para ter lenght%4 = 0            
+            List<string> values = new List<string>();
+            int duracao = 4, inicio = valor1.Length - 4;
+            while (inicio >= 0)
+            {
+                substring = valor1.Substring(inicio, duracao); //pega 4 bits do numero da direita para a esquerda
+                binario = int.Parse(substring); //transforma essa subtring em inteiro
+                dec = Convert.ToInt32(binario.ToString(), 2); //converte para de decimal para binário os 4 bits
+                saida = Convert.ToString(dec, 16); //converte de decimal para hexa                
+                values.Insert(0, saida);
+                inicio -= 4;
+                cont++;
+            }
+            values.ForEach(delegate (string parte)
+            {
+                numeroHexa += parte;
+            });
+
         }
 
         public void Reconstruir() 
