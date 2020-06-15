@@ -55,7 +55,7 @@ namespace CalculadoraUWP
             }
 
 
-            hexa.Text = Convert.ToString(Calculadora.numeroHexa);
+            hexa.Text = "0x" + Convert.ToString(Calculadora.numeroHexa);
             sinalCalculo_32.Text = Calculadora.Sinal;
             expoenteCalculo_32.Text = Calculadora.Expoente32;
             mantissaCalculo_32.Text = Calculadora.Mantissa32;
@@ -106,7 +106,7 @@ namespace CalculadoraUWP
 
                 if (Calculadora.Mantissa32.Count() < 23)
                 {
-                    for (int a = Calculadora.Mantissa32.Count(); a <= 23; a++)
+                    for (int a = Calculadora.Mantissa32.Count(); a < 23; a++)
                     {
                         Calculadora.Mantissa32 += "0";
                     }
