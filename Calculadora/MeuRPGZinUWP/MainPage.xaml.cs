@@ -33,6 +33,11 @@ namespace CalculadoraUWP
             this.InitializeComponent();  
         }
 
+        public void ApagarNum()
+        {
+
+        }
+
         public void AtualizaCalculos()
         {
             
@@ -42,12 +47,15 @@ namespace CalculadoraUWP
                 {
                     sinalCalculo_8.Text = Calculadora.Sinal;
                     mantissaCalculo_8.Text = Calculadora.Mantissa8;
+                    
 
                 }
-                expoenteCalculo_8.Text = Calculadora.Expoente8;             
+                expoenteCalculo_8.Text = Calculadora.Expoente8;
+                
             }
-            
 
+
+            hexa.Text = Convert.ToString(Calculadora.numeroHexa);
             sinalCalculo_32.Text = Calculadora.Sinal;
             expoenteCalculo_32.Text = Calculadora.Expoente32;
             mantissaCalculo_32.Text = Calculadora.Mantissa32;
@@ -73,11 +81,14 @@ namespace CalculadoraUWP
 
             double valorDouble = Double.Parse(valor);
 
+           
+
             if(valorDouble != 0)
             {
-                if ( valorDouble <= 225)
+                if ( valorDouble < 16)
                 {
                     Calculadora.Calculo_8bits(valorDouble);
+                    
                 }
                 else
                 {
@@ -86,6 +97,7 @@ namespace CalculadoraUWP
                 
                 Calculadora.Calculo_32bits(valorDouble);
                 Calculadora.Calculo_64bits(valorDouble);
+                
 
                 if (Calculadora.arredondado_8bits == true)
                 {
@@ -100,6 +112,7 @@ namespace CalculadoraUWP
                     }
                 }
 
+                Calculadora.CalculaHexa();
                 AtualizaCalculos();
                 Calculadora.Reconstruir();
             }

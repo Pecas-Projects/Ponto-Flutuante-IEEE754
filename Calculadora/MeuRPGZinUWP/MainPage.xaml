@@ -54,7 +54,7 @@
 
         <TextBlock Text="Hexadecimal" FontWeight="ExtraBold" FontSize="30" Canvas.Left="270" Canvas.Top="604" Height="54" Width="197" />
         <StackPanel Background="Gray" Width="351" Height="74" Canvas.Left="475" Canvas.Top="587" />
-        <TextBlock x:Name="hexa" Text="-"  FontWeight="ExtraBold" FontSize="45" Canvas.Left="636" Canvas.Top="594" Height="50" Width="26" />
+        <TextBlock x:Name="hexa" Text="         -"  FontWeight="ExtraBold" FontSize="45" Canvas.Left="540" Canvas.Top="601" Height="50" Width="241" />
 
 
     </Canvas>

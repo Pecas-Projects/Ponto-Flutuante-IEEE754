@@ -12,6 +12,7 @@ namespace CalculadoraCore
     public class CalculadoraClasse
     {
         public double numero { get; set; }
+        public string numeroHexa { get; set; } = null;
         public string Sinal { get; set; } = null;
 
         public string Expoente8{ get; set; } = null;
@@ -31,14 +32,29 @@ namespace CalculadoraCore
             this.numero = 0;
         }
 
+        public void CalculaHexa()
+        {
+            string valor1 = this.Sinal + this.Expoente32 + this.Mantissa32;
+            long valor2 = Convert.ToInt64(valor1);
+            string valor3 = Convert.ToString(valor2, 10);
+            numeroHexa =  Convert.ToString(Convert.ToInt64(valor2), 16);
+        }
+
         public void Reconstruir() 
         {
             this.Sinal = null;
+
+            this.arredondado_8bits = false;
+            this.Expoente8 = null;
+            this.Mantissa8 = null;
+
             this.Expoente32 = null;
             this.Mantissa32 = null;
 
             this.Expoente64 = null;
             this.Mantissa64 = null;
+
+            this.numeroHexa = null;
         }
 
 
