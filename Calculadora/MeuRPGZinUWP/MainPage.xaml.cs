@@ -35,7 +35,17 @@ namespace CalculadoraUWP
 
         public void ApagarNum()
         {
+            sinalCalculo_8.Text = "-";
+            sinalCalculo_32.Text = "-";
+            sinalCalculo_64.Text = "-";
 
+            expoenteCalculo_8.Text = "---";
+            expoenteCalculo_32.Text = "--------";
+            expoenteCalculo_64.Text = "-----------";
+
+            mantissaCalculo_8.Text = "----";
+            mantissaCalculo_32.Text = "-----------------------";
+            mantissaCalculo_64.Text = "---------------------------------------------------";
         }
 
         public void AtualizaCalculos()
