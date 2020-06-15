@@ -29,7 +29,7 @@
         <TextBlock x:Name="sinalCalculo_8" Text="-" TextAlignment="Center" FontWeight="ExtraBold" FontSize="45
                    " Canvas.Left="130" Canvas.Top="293" Height="50" Width="135" />
         <StackPanel Background="Gray" Width="327" Height="74" Canvas.Left="311" Canvas.Top="284"/>
-        <TextBlock x:Name="expoenteCalculo_8" Text="---" TextAlignment="Center" FontWeight="ExtraBold" FontSize="35" Canvas.Left="330" Canvas.Top="300" Height="40" Width="290" />
+        <TextBlock x:Name="expoenteCalculo_8" Text="---" TextAlignment="Center" FontWeight="ExtraBold" FontSize="35" Canvas.Left="320" Canvas.Top="300" Height="40" Width="300" />
         <StackPanel Background="Gray" Width="590" Height="74" Canvas.Left="675" Canvas.Top="284"/>
         <TextBlock x:Name="mantissaCalculo_8" TextAlignment="Center" Text="----" FontWeight="ExtraBold" FontSize="35" Canvas.Left="690" Canvas.Top="300" Height="40" Width="560" />
 
@@ -48,7 +48,7 @@
         <StackPanel Background="Gray" Width="157" Height="75" Canvas.Left="121" Canvas.Top="480" />
         <TextBlock x:Name="sinalCalculo_64" TextAlignment="Center" Text="-"  FontWeight="ExtraBold" FontSize="45" Canvas.Left="185" Canvas.Top="493" Height="49" Width="27" />
         <StackPanel Background="Gray" Width="327" Height="75" Canvas.Left="311" Canvas.Top="480"/>
-        <TextBlock x:Name="expoenteCalculo_64" TextAlignment="Center" Text="-----------" FontWeight="ExtraBold" FontSize="35" Canvas.Left="358" Canvas.Top="499" Height="38" Width="241" />
+        <TextBlock x:Name="expoenteCalculo_64" TextAlignment="Center" Text="-----------" FontWeight="ExtraBold" FontSize="35" Canvas.Left="320" Canvas.Top="499" Height="38" Width="300" />
         <StackPanel Background="Gray" Width="590" Height="75" Canvas.Left="675" Canvas.Top="480"/>
         <TextBlock x:Name="mantissaCalculo_64" TextAlignment="Center" FontWeight="ExtraBold" Text="---------------------------------------------------" FontSize="20" Canvas.Left="696" Canvas.Top="499" Height="29" Width="559" SelectionChanged="mantissaCalculo_64_SelectionChanged" />
 
