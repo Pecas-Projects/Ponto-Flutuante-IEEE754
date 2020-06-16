@@ -131,6 +131,20 @@ namespace CalculadoraUWP
                 AtualizaCalculos();
                 Calculadora.Reconstruir();
             }
+            else
+            {
+                sinalCalculo_8.Text = "-";
+                sinalCalculo_32.Text = "-";
+                sinalCalculo_64.Text = "-";
+
+                expoenteCalculo_8.Text = "000";
+                expoenteCalculo_32.Text = "00000000";
+                expoenteCalculo_64.Text = "00000000000";
+
+                mantissaCalculo_8.Text = "0000";
+                mantissaCalculo_32.Text = "00000000000000000000000";
+                mantissaCalculo_64.Text = "0000000000000000000000000000000000000000000000000000";
+            }
 
         }
 
