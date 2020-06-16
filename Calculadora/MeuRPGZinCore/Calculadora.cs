@@ -97,8 +97,10 @@ namespace CalculadoraCore
             }
         }
 
-       
-        static public string execesso(int expoente)
+        /// <summary>
+        /// função que retorna o expoente pela notação de excesso
+        /// </summary>
+        static public string excesso(int expoente)
         {
             string resultado = null;
 
@@ -116,7 +118,10 @@ namespace CalculadoraCore
             return resultado;
         }
 
-
+        /// <summary>
+        /// função do cálculo do ponto flutuante em 8 bits
+        /// </summary>
+        /// <param name="valor">valor de entrada inserido pelo usuário convertido para double</param>
         public string Calculo_8bits(double valor)
         {
             string expoente = null, resultado = null, mantissa = null, aux = null, fracao;
@@ -140,13 +145,13 @@ namespace CalculadoraCore
             if (mantissa != null) //se o valor for > 1, o expoente é definido pelo tamanho em binário da parte inteira do valor
             {
 
-                if (expoente == "Overflow" || expoente == "Underflow")
+                if (expoente == "Overflow" || expoente == "Underflow") //se o expoente for maio ou menor que o permitido para representar pelo excesso
                 {
                     this.Expoente8 = expoente;
                     return expoente;
                 }
 
-                expoente = execesso(mantissa.Length);
+                expoente = excesso(mantissa.Length);
 
             }
 
@@ -160,36 +165,39 @@ namespace CalculadoraCore
                     else break;
                 }
 
-                expoente = execesso(exp);
+                expoente = excesso(exp);
                 if (expoente == "Overflow" || expoente == "Underflow") {
                     this.Expoente8 = expoente;
                     return expoente;
                 }
             }
 
-
-            //pega a parte da mantissa que corresponde ao fracionário
-            while (true)
+            if (fracionaria != 0) //só entra se o número for quebrado
             {
-                if (fracionaria == 1)
+
+                //pega a parte da mantissa que corresponde ao fracionário
+                while (true)
                 {
-                    break;
+                    if (fracionaria == 1) // se for = 1 encerra
+                    {
+                        break;
+                    }
+
+                    if (mantissa != null && mantissa.Length == 4) // se a mantissa for igual a quatro, mas não representar o
+                    {                                               // número todo, a função encerra e trunca o número 
+                        arredondado = true;
+                        break;
+                    }
+
+                    if (fracionaria >= 1) //se fracionaria for maior que um é preciso subtrair 1 dela para 
+                    {
+                        fracionaria -= 1;
+                    }
+                    fracionaria *= 2; //multiplica por 2 e pega o número a esquerda da vírgula para adicionar a mantissa
+                    mantissa += Math.Floor(fracionaria).ToString();
+
+
                 }
-
-                if (mantissa != null && mantissa.Length > 4)
-                {
-                    arredondado = true;
-                    break;
-                }
-
-                if (fracionaria >= 1)
-                {
-                    fracionaria -= 1;
-                }
-                fracionaria *= 2;
-                mantissa += Math.Floor(fracionaria).ToString();
-
-
             }
 
             if (mantissa.Length < 4)
