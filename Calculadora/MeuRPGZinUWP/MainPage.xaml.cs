@@ -87,6 +87,7 @@ namespace CalculadoraUWP
 
         private void Calcular_btn(object sender, RoutedEventArgs e)
         {
+            ApagarNum();
             valor = valorDigitado.Text;
             if(valor.IndexOf('.') != -1)
             {

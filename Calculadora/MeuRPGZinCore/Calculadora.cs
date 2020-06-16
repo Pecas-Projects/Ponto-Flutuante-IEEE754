@@ -176,7 +176,7 @@ namespace CalculadoraCore
                     break;
                 }
 
-                if (mantissa != null && mantissa.Length == 4)
+                if (mantissa != null && mantissa.Length > 4)
                 {
                     arredondado = true;
                     break;
