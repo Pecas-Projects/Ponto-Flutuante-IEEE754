@@ -51,17 +51,21 @@ namespace CalculadoraUWP
         public void AtualizaCalculos()
         {
             
-            if(Calculadora.Expoente8 != null && Calculadora.Mantissa8 != null)
+            if(Calculadora.Mantissa8 != null)
             {
-                if (Calculadora.Expoente8 != "Overflow" && Calculadora.Expoente8 != "Underflow")
+                if(Calculadora.Expoente8 != null)
                 {
-                    sinalCalculo_8.Text = Calculadora.Sinal;
-                    mantissaCalculo_8.Text = Calculadora.Mantissa8;
-                    
+                    if (Calculadora.Expoente8 != "Overflow" && Calculadora.Expoente8 != "Underflow")
+                    {
+                        sinalCalculo_8.Text = Calculadora.Sinal;
+                        
 
+                    }
+                    expoenteCalculo_8.Text = Calculadora.Expoente8;
                 }
-                expoenteCalculo_8.Text = Calculadora.Expoente8;
-                
+                    
+                mantissaCalculo_8.Text = Calculadora.Mantissa8;
+                  
             }
 
 

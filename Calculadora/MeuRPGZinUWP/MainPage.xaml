@@ -31,7 +31,7 @@
         <StackPanel Background="Gray" Width="327" Height="74" Canvas.Left="300" Canvas.Top="284"/>
         <TextBlock x:Name="expoenteCalculo_8" Text="---" TextAlignment="Center" FontWeight="ExtraBold" FontSize="35" Canvas.Left="309" Canvas.Top="300" Height="40" Width="300" />
         <StackPanel Background="Gray" Width="624" Height="74" Canvas.Left="651" Canvas.Top="284"/>
-        <TextBlock x:Name="mantissaCalculo_8" TextAlignment="Center" Text="----" FontWeight="ExtraBold" FontSize="35" Canvas.Left="690" Canvas.Top="300" Height="40" Width="560" />
+        <TextBlock x:Name="mantissaCalculo_8" TextAlignment="Center" Text="----" FontWeight="ExtraBold" FontSize="35" Canvas.Left="690" Canvas.Top="300" Height="50" Width="560" />
 
         <TextBlock Text="32 bits" FontWeight="ExtraBold" FontSize="25" Canvas.Left="31" Canvas.Top="400" Height="29" Width="91" />
         <StackPanel Background="Gray" Width="157" Height="75" Canvas.Left="121" Canvas.Top="384" />
