@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="CalculadoraUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CalculadoraUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Height="700"
+    Width="1300"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Canvas HorizontalAlignment="Left" Width="1290">
+        <TextBlock Foreground="Blue" FontWeight="ExtraBold" FontSize="45
+                   " Canvas.Left="377" Canvas.Top="10" Text="CALCULADORA IEEE 754" TextWrapping="Wrap" Height="65" Width="557" RenderTransformOrigin="0.496,1.185"/>
+
+        <TextBox x:Name="valorDigitado" Height="51" Width="873" Canvas.Left="103" Canvas.Top="115" FontSize="30" />
+        <Button x:Name="Calcular" FontWeight="ExtraBold" Content="Calcular!" FontSize="35
+                " Height="56" Width="255" Canvas.Left="1010" Canvas.Top="110" Click="Calcular_btn" />
+
+        <TextBlock Text="Sinal" FontWeight="ExtraBold" FontSize="45
+                   " Canvas.Left="124" Canvas.Top="196" Height="50" Width="109" />
+        <TextBlock Text="Expoente" FontWeight="ExtraBold" FontSize="45" Canvas.Left="358" Canvas.Top="196" Height="50" Width="212" />
+        <TextBlock Text="Mantissa" FontWeight="ExtraBold" FontSize="45" Canvas.Left="867" Canvas.Top="196" Height="50" Width="201" />
+
+        <TextBlock Text="8 bits" FontWeight="ExtraBold" FontSize="25
+" Canvas.Left="31" Canvas.Top="298" Height="30" Width="75" />
+        <StackPanel Background="Gray" Width="157" Height="74" Canvas.Left="121" Canvas.Top="284" />
+        <TextBlock x:Name="sinalCalculo_8" Text="-" TextAlignment="Center" FontWeight="ExtraBold" FontSize="45
+                   " Canvas.Left="130" Canvas.Top="293" Height="50" Width="135" />
+        <StackPanel Background="Gray" Width="327" Height="74" Canvas.Left="300" Canvas.Top="284"/>
+        <TextBlock x:Name="expoenteCalculo_8" Text="---" TextAlignment="Center" FontWeight="ExtraBold" FontSize="35" Canvas.Left="309" Canvas.Top="300" Height="40" Width="300" />
+        <StackPanel Background="Gray" Width="624" Height="74" Canvas.Left="651" Canvas.Top="284"/>
+        <TextBlock x:Name="mantissaCalculo_8" TextAlignment="Center" Text="----" FontWeight="ExtraBold" FontSize="35" Canvas.Left="690" Canvas.Top="300" Height="50" Width="560" />
+
+        <TextBlock Text="32 bits" FontWeight="ExtraBold" FontSize="25" Canvas.Left="31" Canvas.Top="400" Height="29" Width="91" />
+        <StackPanel Background="Gray" Width="157" Height="75" Canvas.Left="121" Canvas.Top="384" />
+        <TextBlock x:Name="sinalCalculo_32" Text="-" TextAlignment="Center" FontWeight="ExtraBold" FontSize="45
+                   " Canvas.Left="130" Canvas.Top="395" Height="50" Width="135" />
+        <StackPanel Background="Gray" Width="327" Height="75" Canvas.Left="300" Canvas.Top="384"/>
+        <TextBlock x:Name="expoenteCalculo_32" TextAlignment="Center" Text="--------" FontWeight="ExtraBold" FontSize="35" Canvas.Left="309" Canvas.Top="403" Height="45" Width="300" />
+        <StackPanel Background="Gray" Width="624" Height="75" Canvas.Left="651" Canvas.Top="384"/>
+        <TextBlock x:Name="mantissaCalculo_32" TextAlignment="Center" Text="-----------------------" FontWeight="ExtraBold" FontSize="35
+                   " Canvas.Left="700" Canvas.Top="403" Height="38" Width="540" />
+
+        <TextBlock Text="64 bits" FontWeight="ExtraBold" FontSize="25
+                   " Canvas.Left="31" Canvas.Top="496" Height="29" Width="91" />
+        <StackPanel Background="Gray" Width="157" Height="75" Canvas.Left="121" Canvas.Top="480" />
+        <TextBlock x:Name="sinalCalculo_64" TextAlignment="Center" Text="-"  FontWeight="ExtraBold" FontSize="45" Canvas.Left="185" Canvas.Top="493" Height="49" Width="27" />
+        <StackPanel Background="Gray" Width="327" Height="75" Canvas.Left="302" Canvas.Top="480"/>
+        <TextBlock x:Name="expoenteCalculo_64" TextAlignment="Center" Text="-----------" FontWeight="ExtraBold" FontSize="35" Canvas.Left="311" Canvas.Top="499" Height="38" Width="300" />
+        <StackPanel Background="Gray" Width="624" Height="75" Canvas.Left="651" Canvas.Top="480"/>
+        <TextBlock x:Name="mantissaCalculo_64" TextAlignment="Center" FontWeight="ExtraBold" Text="---------------------------------------------------" FontSize="20" Canvas.Left="651" Canvas.Top="499" Height="29" Width="622" SelectionChanged="mantissaCalculo_64_SelectionChanged" />
+
+        <TextBlock Text="Hexadecimal" FontWeight="ExtraBold" FontSize="30" Canvas.Left="270" Canvas.Top="604" Height="54" Width="197" />
+        <StackPanel Background="Gray" Width="351" Height="74" Canvas.Left="475" Canvas.Top="587" />
+        <TextBlock x:Name="hexa" TextAlignment="Center" Text="-"  FontWeight="ExtraBold" FontSize="45" Canvas.Left="500" Canvas.Top="600" Height="50" Width="300" />
+
+
+    </Canvas>
+</Page>

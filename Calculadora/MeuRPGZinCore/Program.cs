@@ -272,5 +272,105 @@ namespace Calculadora
 
         //depois, fazer uma função de binário para ponto flutuante
         //função de ponto flutuante (binário) para hexadecimal
+
+        static public string execesso(int expoente)
+        {
+            string resultado = null;
+
+            if (expoente == -4) resultado = "000";
+            else if (expoente == -3) resultado = "001";
+            else if (expoente == -2) resultado = "010";
+            else if (expoente == -1) resultado = "011";
+            else if (expoente == 0) resultado = "100";
+            else if (expoente == 1) resultado = "101";
+            else if (expoente == 2) resultado = "110";
+            else if (expoente == 3) resultado = "111";
+            else if (expoente > 3) resultado = "Overflow";
+            else if (expoente < -1) resultado = "Underflow";
+
+            return resultado;
+        }
+
+        static public string Dec_toBin_8bits(string value) //falta implementar o excesso
+        {
+            string expoente = null, resultado = null, mantissa = null, aux = null, fracao;
+            double valor = Double.Parse(value);
+            Console.WriteLine(valor);
+            double fracionaria;
+            bool arredondado = false;
+            int exp = 0;
+
+            //pega a parte inteira e converte para binário obtendo uma parte da mantissa
+
+            aux = Math.Floor(valor).ToString();
+
+            fracionaria = valor - Math.Floor(valor);
+
+            if (aux != "0")
+            {
+                mantissa = Convert.ToString(Convert.ToByte(aux), 2);
+            }
+
+
+            if (mantissa != null) //se o valor for > 1, o expoente é definido pelo tamanho em binário da parte inteira do valor
+            {
+                expoente = execesso(mantissa.Length);
+                if (expoente == "Overflow" || expoente == "Underflow") return expoente;
+
+            }
+
+            //descorir quantos zeros tem depois da virgula
+            else if (mantissa == null)
+            {
+                fracao = fracionaria.ToString();
+                for (int i = 2; i < fracao.Length; ++i) //começa na primeira casa decimal depois da virgula
+                {
+                    if (fracao[i] == 0) --exp;
+                    else break;
+                }
+
+                expoente = execesso(exp);
+                if (expoente == "Overflow" || expoente == "Underflow") return expoente;
+            }
+
+
+            //pega a parte da mantissa que corresponde ao fracionário
+            while (true)
+            {
+                if (fracionaria == 0)
+                {
+                    break;
+                }
+
+                if (mantissa != null && mantissa.Length == 4)
+                {
+                    arredondado = true;
+                    break;
+                }
+
+                if (fracionaria >= 1)
+                {
+                    fracionaria -= 1;
+                }
+                fracionaria *= 2;
+                mantissa += Math.Floor(fracionaria).ToString();
+
+
+            }
+
+            if (mantissa.Length < 4)
+            {
+                while (mantissa.Length < 4) //se não tiver 4 digitos na mantissa adiciona zeros no final
+                {
+                    mantissa += "0";
+                }
+            }
+
+            resultado = "0" + expoente + mantissa;
+            return resultado;
+        }
+
+
+
     }
 }
