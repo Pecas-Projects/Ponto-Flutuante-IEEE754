@@ -31,26 +31,29 @@ namespace CalculadoraCore
         {
             this.numero = 0;
         }
-
+        
+        /// <summary>
+        /// função que calcula a representação em hexa do valor binário em 32 bits
+        /// </summary>
         public void CalculaHexa()
         {
             numeroHexa = null;
             string substring, saida;
             int binario, dec, cont = 0;
             string valor1 = this.Sinal + this.Expoente32 + this.Mantissa32; //formação total do valor em binário com a adição do 0 para ter lenght%4 = 0            
-            List<string> values = new List<string>();
-            int duracao = 4, inicio = valor1.Length - 4;
+            List<string> values = new List<string>(); //lista de strings cujo cada elemento é uma parte em hexadecimal obtido pelo valor em binário
+            int duracao = 4, inicio = valor1.Length - 4;  //marcadores de tamanho da substring (nº de bits) e início dela
             while (inicio >= 0)
             {
                 substring = valor1.Substring(inicio, duracao); //pega 4 bits do numero da direita para a esquerda
                 binario = int.Parse(substring); //transforma essa subtring em inteiro
-                dec = Convert.ToInt32(binario.ToString(), 2); //converte para de decimal para binário os 4 bits
+                dec = Convert.ToInt32(binario.ToString(), 2); //converte para decimal o valor binário
                 saida = Convert.ToString(dec, 16); //converte de decimal para hexa                
-                values.Insert(0, saida);
+                values.Insert(0, saida); //insere sempre no início lista
                 inicio -= 4;
                 cont++;
             }
-            values.ForEach(delegate (string parte)
+            values.ForEach(delegate (string parte) //construção do valor completo em hexadecimal (percorre da esquerda para direita)
             {
                 numeroHexa += parte;
             });
@@ -75,6 +78,11 @@ namespace CalculadoraCore
         }
 
 
+        /// <summary>
+        /// define se o sinal é 0 ou 1
+        /// </summary>
+        /// <param name="num">essa variável é o valor de entrada convertido para double</param>
+        /// <returns></returns>
         public double DefineSinal(double num)
         {
             if (num >= 0)
@@ -89,6 +97,7 @@ namespace CalculadoraCore
             }
         }
 
+       
         static public string execesso(int expoente)
         {
             string resultado = null;
@@ -198,16 +207,19 @@ namespace CalculadoraCore
         }
 
 
-
+        /// <summary>
+        /// função do cálculo do ponto flutuante de 32 bits
+        /// </summary>
+        /// <param name="valor">valor de entrada inserido pelo usuário convertido para double</param>
         public void Calculo_32bits(double valor)
         {
-            valor = DefineSinal(valor);
-            double fracionaria, proxNum = valor; //proximo numero a ser dividido
-            int exp = 0, multiplicacoes = 0;
+            valor = DefineSinal(valor); //recebe o valor equivalente ao sinal do número
+            double fracionaria, proxNum = valor; //var que receberá o número equivalente à parte fracionária e o var do próximo numero a ser dividido
+            int exp = 0, multiplicacoes = 0; //contadores do expoente obtido e da qtd multiplicações realizadas para encontrar a parte fracionária
 
-            if (valor > 2)
+            if (valor > 2) 
             {
-                while (true) //divisões sucessivas
+                while (true) //divisões sucessivas até que o quociente obtido seja menor do que 2
                 {
                     proxNum = proxNum / 2;
                     exp++;
@@ -217,9 +229,9 @@ namespace CalculadoraCore
                     }
                 }
             }
-            else if (valor < 1) //multiplicações sucessivas
+            else if (valor < 1) //multiplicações sucessivas até que o produto seja maior ou igual a 1
             {
-                while (true)
+                while (true) 
                 {
                     proxNum = proxNum * 2;
                     exp--;
@@ -231,8 +243,10 @@ namespace CalculadoraCore
             }
 
             //obtendo a parte após a vírgula em binário || 2ª etapa
-            fracionaria = proxNum - 1; //obtenção da parte fracionária do quociente
-            while (true)
+            fracionaria = proxNum - 1; //obtenção da parte após a vírgula do valor do quociente
+
+            while (true) 
+                //enquanto a parte fracionária for diferente de 0 multiplicará sucessivamente sempre tirando a parte inteira do valor
             {
 
                 if (fracionaria >= 1)
@@ -240,32 +254,36 @@ namespace CalculadoraCore
                     fracionaria -= 1;
                 }
                 fracionaria *= 2;
-                this.Mantissa32 += Math.Floor(fracionaria).ToString();
-                multiplicacoes++;
-                if (multiplicacoes > 23 || fracionaria == 0)
+                this.Mantissa32 += Math.Floor(fracionaria).ToString(); //adiciona à mantissa a parte inteira do número transformando em string
+                multiplicacoes++; 
+                if (multiplicacoes > 23 || fracionaria == 0) //condições de término
+                    //23: número máximo de bits que a mantissa suporta
                 {
                     break;
                 }
             }
 
             exp += 127; //valor acrescido para o padrão IEEE
-            //Console.WriteLine(exp);
             this.Expoente32 = Convert.ToString(Convert.ToByte(exp), 2); //expoente em binário
-            if (this.Expoente32.Length < 8)
+            if (this.Expoente32.Length < 8) //acrescenta os '0' ao expoente no caso da sua qtd de bits ser menor do que 8
             {
                 this.Expoente32 = '0' + this.Expoente32;
             }
 
         }
-
+        
+        /// <summary>
+        /// função que calcula o ponto flutuante de 64 bits
+        /// </summary>
+        /// <param name="valor"></param>
         public void Calculo_64bits(double valor)
         {
-            valor = DefineSinal(valor);
-            double fracionaria, proxNum = valor; //proximo numero a ser dividido
-            int exp = 0, multiplicacoes = 0;
+            valor = DefineSinal(valor); //recebe o valor equivalente ao sinal do número
+            double fracionaria, proxNum = valor; //var que receberá o número equivalente à parte fracionária e o var do próximo numero a ser dividido
+            int exp = 0, multiplicacoes = 0; //contadores do expoente obtido e da qtd multiplicações realizadas para encontrar a parte fracionária
             if (valor > 2)
             {
-                while (true) //divisões sucessivas
+                while (true) //divisões sucessivas até que o quociente obtido seja menor do que 2
                 {
                     proxNum = proxNum / 2;
                     exp++;
@@ -275,13 +293,13 @@ namespace CalculadoraCore
                     }
                 }
             }
-            else if (valor < 1) //multiplicações sucessivas
+            else if (valor < 1) //multiplicações sucessivas até que o produto seja maior ou igual a 1
             {
                 while (true)
                 {
                     proxNum = proxNum * 2;
                     exp--;
-                    if (proxNum >= 1)
+                    if (proxNum >= 1) //controle das multiplicações
                     {
                         break;
                     }
@@ -290,7 +308,7 @@ namespace CalculadoraCore
 
             //obtendo a parte após a vírgula em binário || 2ª etapa
             fracionaria = proxNum - 1; //obtenção da parte fracionária do quociente
-            while (true)
+            while (true) //enquanto a parte fracionária for diferente de 0 multiplicará sucessivamente sempre tirando a parte inteira do valor
             {
 
                 if (fracionaria >= 1)
@@ -299,6 +317,7 @@ namespace CalculadoraCore
                 }
                 fracionaria *= 2;
                 this.Mantissa64 += Math.Floor(fracionaria).ToString();
+                //adiciona à mantissa a parte inteira do número transformando em string
                 multiplicacoes++;
                 if (multiplicacoes > 52 || fracionaria == 0)
                 {
@@ -307,28 +326,19 @@ namespace CalculadoraCore
             }
 
             //completando 52 bits na mantissa
-            while (this.Mantissa64.Length < 52)
+            while (this.Mantissa64.Length < 52) //condições de término
+                //23: número máximo de bits que a mantissa suporta
             {
                 this.Mantissa64 += '0';
             }
 
-           /* if (this.Sinal == "1")
-            {
-                this.Mantissa64 = "1";
-            }
-            else
-            {
-                this.Mantissa64 = "0";
-            }*/
-
-            //Console.WriteLine(exp);
             exp += 1023; //valor acrescido para o padrão IEEE
             Console.WriteLine(Convert.ToInt64(exp));
             this.Expoente64 = Convert.ToString(Convert.ToInt64(exp), 2); //expoente em binário
             //procurar um método de conversão para binário de um valor maior do 1000
-            if (this.Expoente64.Length < 11)
+            if (this.Expoente64.Length < 11) //acrescenta os '0' ao expoente no caso da sua qtd de bits ser menor do que 11
             {
-                this.Expoente64 = '0' + this.Expoente64;
+                this.Expoente64 = '0' + this.Expoente64; 
             }
 
 
