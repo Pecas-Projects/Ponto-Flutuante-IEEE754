@@ -216,7 +216,8 @@ namespace CalculadoraCore
 
 
         /// <summary>
-        /// função do cálculo do ponto flutuante de 32 bits
+        /// Função de converção de um numero decimal positivo ou negativo para um ponto flutuante de 32 bits
+        /// Padrão IEEE - 754
         /// </summary>
         /// <param name="valor">valor de entrada inserido pelo usuário convertido para double</param>
         public void Calculo_32bits(double valor)
@@ -279,9 +280,10 @@ namespace CalculadoraCore
             }
 
         }
-        
+
         /// <summary>
-        /// função que calcula o ponto flutuante de 64 bits
+        /// Função de converção de um numero decimal positivo ou negativo para um ponto flutuante de 64 bits
+        /// Padrão IEEE - 754
         /// </summary>
         /// <param name="valor"></param>
         public void Calculo_64bits(double valor)
