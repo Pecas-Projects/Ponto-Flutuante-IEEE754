@@ -82,7 +82,7 @@ namespace CalculadoraUWP
 
         private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         {
-
+             
         }
 
         private void Calcular_btn(object sender, RoutedEventArgs e)
@@ -148,9 +148,5 @@ namespace CalculadoraUWP
 
         }
 
-        private void mantissaCalculo_64_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

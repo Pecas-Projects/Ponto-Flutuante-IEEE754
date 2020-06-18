@@ -32,33 +32,6 @@ namespace CalculadoraCore
             this.numero = 0;
         }
         
-        /// <summary>
-        /// função que calcula a representação em hexa do valor binário em 32 bits
-        /// </summary>
-        public void CalculaHexa()
-        {
-            numeroHexa = null;
-            string substring, saida;
-            int binario, dec, cont = 0;
-            string valor1 = this.Sinal + this.Expoente32 + this.Mantissa32; //formação total do valor em binário com a adição do 0 para ter lenght%4 = 0            
-            List<string> values = new List<string>(); //lista de strings cujo cada elemento é uma parte em hexadecimal obtido pelo valor em binário
-            int duracao = 4, inicio = valor1.Length - 4;  //marcadores de tamanho da substring (nº de bits) e início dela
-            while (inicio >= 0)
-            {
-                substring = valor1.Substring(inicio, duracao); //pega 4 bits do numero da direita para a esquerda
-                binario = int.Parse(substring); //transforma essa subtring em inteiro
-                dec = Convert.ToInt32(binario.ToString(), 2); //converte para decimal o valor binário
-                saida = Convert.ToString(dec, 16); //converte de decimal para hexa                
-                values.Insert(0, saida); //insere sempre no início lista
-                inicio -= 4;
-                cont++;
-            }
-            values.ForEach(delegate (string parte) //construção do valor completo em hexadecimal (percorre da esquerda para direita)
-            {
-                numeroHexa += parte;
-            });
-
-        }
 
         public void Reconstruir() 
         {
@@ -96,6 +69,7 @@ namespace CalculadoraCore
                 return (num * -1);
             }
         }
+
 
         /// <summary>
         /// função que retorna o expoente pela notação de excesso
@@ -352,6 +326,34 @@ namespace CalculadoraCore
             }
 
 
+
+        }
+
+        /// <summary>
+        /// função que calcula a representação em hexa do valor binário em 32 bits
+        /// </summary>
+        public void CalculaHexa()
+        {
+            numeroHexa = null;
+            string substring, saida;
+            int binario, dec, cont = 0;
+            string valor1 = this.Sinal + this.Expoente32 + this.Mantissa32; //formação total do valor em binário com a adição do 0 para ter lenght%4 = 0            
+            List<string> values = new List<string>(); //lista de strings cujo cada elemento é uma parte em hexadecimal obtido pelo valor em binário
+            int duracao = 4, inicio = valor1.Length - 4;  //marcadores de tamanho da substring (nº de bits) e início dela
+            while (inicio >= 0)
+            {
+                substring = valor1.Substring(inicio, duracao); //pega 4 bits do numero da direita para a esquerda
+                binario = int.Parse(substring); //transforma essa subtring em inteiro
+                dec = Convert.ToInt32(binario.ToString(), 2); //converte para decimal o valor binário
+                saida = Convert.ToString(dec, 16); //converte de decimal para hexa                
+                values.Insert(0, saida); //insere sempre no início lista
+                inicio -= 4;
+                cont++;
+            }
+            values.ForEach(delegate (string parte) //construção do valor completo em hexadecimal (percorre da esquerda para direita)
+            {
+                numeroHexa += parte;
+            });
 
         }
     }
