@@ -80,11 +80,6 @@ namespace CalculadoraUWP
             mantissaCalculo_64.Text = Calculadora.Mantissa64;
         }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-             
-        }
-
         private void Calcular_btn(object sender, RoutedEventArgs e)
         {
             ApagarNum();

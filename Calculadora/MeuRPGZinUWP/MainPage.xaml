@@ -50,7 +50,7 @@
         <StackPanel Background="Gray" Width="327" Height="75" Canvas.Left="298" Canvas.Top="480"/>
         <TextBlock x:Name="expoenteCalculo_64" TextAlignment="Center" Text="-----------" FontWeight="ExtraBold" FontSize="35" Canvas.Left="307" Canvas.Top="499" Height="38" Width="300" />
         <StackPanel Background="Gray" Width="630" Height="75" Canvas.Left="645" Canvas.Top="480"/>
-        <TextBlock x:Name="mantissaCalculo_64" TextAlignment="Center" FontWeight="ExtraBold" Text="---------------------------------------------------" FontSize="20" Canvas.Left="645" Canvas.Top="499" Height="29" Width="642" SelectionChanged="mantissaCalculo_64_SelectionChanged" />
+        <TextBlock x:Name="mantissaCalculo_64" TextAlignment="Center" FontWeight="ExtraBold" Text="---------------------------------------------------" FontSize="20" Canvas.Left="645" Canvas.Top="499" Height="29" Width="642" />
 
         <TextBlock Text="Hexadecimal" FontWeight="ExtraBold" FontSize="30" Canvas.Left="270" Canvas.Top="604" Height="54" Width="197" />
         <StackPanel Background="Gray" Width="351" Height="74" Canvas.Left="475" Canvas.Top="587" />
